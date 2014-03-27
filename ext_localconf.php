@@ -7,7 +7,7 @@ if (!defined('TYPO3_MODE')) {
 	'VMFDS.' . $_EXTKEY,
 	'Events',
 	array(
-		'Event' => 'list, show',		
+		'Event' => 'list,show,register',		
 	),
 	// non-cacheable actions
 	array(

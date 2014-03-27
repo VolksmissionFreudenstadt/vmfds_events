@@ -11,7 +11,7 @@ if (!defined('TYPO3_MODE')) {
 );
 
 // add static TypoScript configuration
-//\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Events');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Events');
 
 // Model: Event
 
