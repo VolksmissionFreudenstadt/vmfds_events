@@ -3,7 +3,7 @@
 namespace VMFDS\VmfdsEvents\Controller;
 
 // override autoload:
-//require_once(\TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName('EXT:vmfds_kool/Classes/Domain/Repository/KoolUserRepository.php'));
+require_once(\TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName('EXT:vmfds_kool/Classes/Domain/Repository/KoolEventRepository.php'));
 
 class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
@@ -29,10 +29,13 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		
 	public function __construct() {
 		parent::__construct();
-		//$this->koolEventRepository = new \VMFDS\VmfdsEvent\Domain\Repository\KoolEventRepository();
+		$this->koolEventRepository = new \VMFDS\VmfdsEvent\Domain\Repository\KoolEventRepository();
 	}
 		
 	public function listAction() {
+		$events = $this->koolEventRepository->findBySettings($this->settings);
+		
+		$this->view->assign('events' => $events);
 	}
 
 }
