@@ -3,7 +3,7 @@
 namespace VMFDS\VmfdsEvents\Controller;
 
 // override autoload:
-require_once(\TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName('EXT:vmfds_kool/Classes/Domain/Repository/KoolEventRepository.php'));
+require_once(\TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName('EXT:vmfds_event/Classes/Domain/Repository/KoolEventRepository.php'));
 
 class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
