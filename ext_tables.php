@@ -21,12 +21,16 @@ if (!defined('TYPO3_MODE')) {
 
 
 
-$extensionName = t3lib_div::underscoredToUpperCamelCase($_EXTKEY); 
-$pluginSignature = 'vmfdsevents_events'; 
-
 
 // add flexform
-//$TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
-//t3lib_extMgm::addPiFlexFormValue($pluginSignature, 'FILE:EXT:vmfds_events/Configuration/FlexForms/flexform_sermons.xml'); 
+$pluginSignature = 'vmfdsevents_events';
+
+
+$TCA['tt_content']['types']['list']['subtypes_excludelist'][$pluginSignature] = 'layout,select_key,pages';
+$TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature,
+		'FILE:EXT:' . $_EXTKEY .
+		'/Configuration/FlexForms/flexform_events.xml');
 
 ?>
