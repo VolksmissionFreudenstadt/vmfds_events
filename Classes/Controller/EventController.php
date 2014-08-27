@@ -75,6 +75,12 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	public function listAction() {
 		$this->importFlexFormSettings();
 		$events = $this->koolEventRepository->findBySettings($this->settings, $this->request->getArguments());
+		
+		$period = array();
+		$period['start'] = strtotime($this->settings['period']['start']);
+		$period['end'] = strtotime($this->settings['period']['end']);
+		
+		$this->view->assign('period', $period);
 		$this->view->assign('settings', $this->settings);
 		$this->view->assign('events', $events);
 		//die ('<pre>'.print_r($this->settings,1));
